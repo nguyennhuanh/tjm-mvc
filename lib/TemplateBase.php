@@ -95,7 +95,7 @@ class TemplateBase{
         
         foreach($this->script_src as $key => $val){
             if (!empty($val)){
-                echo '<script src="'.$val.'"></script>';
+                echo '<script language="javascript" type="text/javascript" src="'.$val.'"></script>';
             }
         }
         
@@ -134,17 +134,17 @@ class TemplateBase{
     
     public function header($f = null){
         if (isset($f) && !empty($f)){
-            echo '<div id="'.$this->pageId[$f].'Header" data-role="header" data-theme="b">'.$this->title.'</div>';
+            echo '<div id="'.$this->pageId[$f].'Header" data-role="header" data-theme="b"><a href="home" data-iconpos="notext" data-direction="reverse" data-icon="home" title="Home"></a><h1>TJM-MVC Framework</h1></div>';
         } else {
-            echo '<div id="'.$this->pageId.'Header" data-role="header" data-theme="b">'.$this->title.'</div>';
+            echo '<div id="'.$this->pageId.'Header" data-role="header" data-theme="b"><a href="home" data-iconpos="notext" data-direction="reverse" data-icon="home" title="Home"></a><h1>TJM-MVC Framework</h1></div>';
         }
     }
     
     public function footer($f = null){
         if (isset($f) && !empty($f)){
-            echo '<div id="'.$this->pageId[$f].'Footer" data-role="footer" data-theme="b"></div>';            
+            echo '<div id="'.$this->pageId[$f].'Footer" data-role="footer" data-theme="c" role="contentinfo"><p>© 2011 TJM-MVC Framework</p></div>';            
         } else {
-            echo '<div id="'.$this->pageId.'Footer" data-role="footer" data-theme="b"></div>';
+            echo '<div id="'.$this->pageId.'Footer" data-role="footer" data-theme="c" role="contentinfo"><p>© 2011 TJM-MVC Framework</p></div>';
         }
     }
     

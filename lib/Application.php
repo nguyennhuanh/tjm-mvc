@@ -39,13 +39,22 @@ class Application{
         
         /* ページを取得し、遷移する */
         $page_routing = Routes::get();
-        $template = new $template_class($page_routing[$page]['php'], 'Jquery Mobile MVC');
+        $template = new $template_class($page_routing[$page]['php']);
         
         if (isset($page_routing[$page]['js'])){
-            $template->script_src += $page_routing[$page]['js'];
+			if (is_array($page_routing[$page]['js'])){
+				$template->script_src += $page_routing[$page]['js'];
+			} else {
+				$template->script_src[] = $page_routing[$page]['js'];
+			}
         }
+		
         if (isset($page_routing[$page]['css'])){
-            $template->style_src += $page_routing[$page]['css'];
+			if (is_array($page_routing[$page]['css'])){
+				$template->style_src += $page_routing[$page]['css'];
+			} else {
+				$template->style_src[] = $page_routing[$page]['css'];
+			}
         }
         
         $template->render();

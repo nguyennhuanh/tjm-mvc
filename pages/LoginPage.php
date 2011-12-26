@@ -1,13 +1,13 @@
 <div data-role="content">
-    <h2>Login</h2>
+    <h2><?php echo Lang::get('LOGIN'); ?></h2>
 
     <form method="post" action="login">
         <div data-role="fieldcontain">
-            <label for="username" class="ui-input-text">Username:</label>
+            <label for="username" class="ui-input-text"><?php echo Lang::get('USERNAME'); ?>:</label>
             <input type="text" name="username" class="text" id="username" value="" />
         </div>
         <div data-role="fieldcontain">
-            <label for="password">Password:</label>
+            <label for="password"><?php echo Lang::get('PASSWORD'); ?>:</label>
             <input type="password" name="password" class="text" id="password" />
         </div>
         <div data-role="fieldcontain">
@@ -16,5 +16,5 @@
         
     </form>
 
-    <a href="home">Back to home</a>
+    <a href="home"><?php echo Lang::get('BACK_HOME'); ?></a>
 </div>

@@ -33,11 +33,12 @@ class BasicAuth{
     private static $password_field;
     private static $table;
     private static $secret_key = "GJDdev29KakezsB";
+	private static $app_key = "WKapmThGZGCnKBZQ"; // login key
     
     public static function validate(){
         // verify if cookie exists, if exists...
-        if (isset($_COOKIE['login']) && $_COOKIE['login']){
-            list($c_username, $cookie_hash) = split(',', $_COOKIE['login']);
+        if (isset($_COOKIE[BasicAuth::$app_key]) && $_COOKIE[BasicAuth::$app_key]){
+            list($c_username, $cookie_hash) = split(',', $_COOKIE[BasicAuth::$app_key]);
             if (md5($c_username.BasicAuth::$secret_key) == $cookie_hash) {                
                 $login = $c_username;
             } 
@@ -49,6 +50,10 @@ class BasicAuth{
         
         return null;
     }
+	
+	public static function logout(){
+		setcookie(BasicAuth::$app_key, "", strtotime("+30 days"), "/");
+	}
     
     public static function verify($login, $password){
         if (BasicAuth::$table == 'NO_SQL_AUTH'){
@@ -70,7 +75,9 @@ class BasicAuth{
         // return true if logged in and false if not        
         if(!empty($result) && $result){            
             // If logged, update session
-            setcookie('login', $login.','.md5($login.BasicAuth::$secret_key));
+            setcookie(BasicAuth::$app_key, 
+					$login.','.md5($login.BasicAuth::$secret_key), 
+					strtotime("+30 days"), "/");
             return true;
         }
 

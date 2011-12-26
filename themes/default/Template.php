@@ -27,4 +27,14 @@ class Template extends TemplateBase{
         echo '<h1>404 Error</h1>'.
             '<p>Sorry, we couldn\'t find that page. Please check the URL or try again later.</p>';
     }
+	// Uncomment header and footer functions below to override appreance of your page.
+	/*
+	public function header($f = null){
+        
+    }
+	
+	public function footer($f = null){
+        
+    }
+	*/
 }

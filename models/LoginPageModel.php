@@ -10,4 +10,8 @@ class LoginPageModel extends PageModelBase{
 			$this->redirect('home');
 		}
 	}
+	
+	protected function logout($args){
+		BasicAuth::logout();
+	}
 }

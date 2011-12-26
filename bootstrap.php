@@ -38,6 +38,7 @@ require_once LIB_DIR.'PageModelBase.php';
 require_once LIB_DIR.'TemplateBase.php';
 require_once LIB_DIR.'Application.php';
 require_once LIB_DIR.'BasicAuth.php';
+require_once LIB_DIR.'Lang.php';
 
 /*
 	======================================================================
@@ -58,17 +59,22 @@ Configure::write('http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.cs
 */
 Configure::write('localhost', 'db_host');
 Configure::write('root', 'db_user');
-Configure::write('anhnn123', 'db_pass');
-Configure::write('qa', 'db_name');
+Configure::write('your_pass', 'db_pass');
+Configure::write('your_db', 'db_name');
 /*
 * In case you want to use connection from another program, you can init Database object with parameter $external_connection
 * Database::init($external_connection)
 */
-Database::init();
+//Database::init();
 
 Configure::write('default', 'theme'); // Load a new theme
 Configure::write(false, 'template', 'content_div'); // true: using content_div on template
-Configure::write('今日のクイズ', 'site_title');
+Configure::write('TJM-MVC', 'site_title');
+
+/*
+* Language setting
+*/
+Lang::load('en');
 
 /*
 * Routing table setting: path to pages, js, css.
@@ -82,8 +88,14 @@ Routes::add(array('home' => array( 'php' => array('pages/HomePage.php', 'pages/A
                     'error' => array( 'php' => 'pages/ErrorPage.php',),
                 ));
 */
-Routes::add(array('home' => array( 'php' => array('pages/HomePage.php', 'pages/AboutPage.php' ),),    
-                    'restrict' => array( 'php' => 'pages/RestrictPage.php',),
+Routes::add(array('home' => array( 'php' => array('pages/HomePage.php'),),    
+                    'intro' => array( 'php' => 'pages/IntroPage.php',),
+					'quickstart' => array( 'php' => 'pages/QuickstartPage.php',),
+                    'feature' => array( 'php' => 'pages/FeaturePage.php',),
+					'license' => array( 'php' => 'pages/LicensePage.php',),
+					'download' => array( 'php' => 'pages/DownloadPage.php',),
+					'showcase' => array( 'php' => 'pages/ShowcasePage.php',),
+					'restrict' => array( 'php' => 'pages/RestrictPage.php',),
                     'login' => array( 'php' => 'pages/LoginPage.php',),
                     'error' => array( 'php' => 'pages/ErrorPage.php',),
                 ));
@@ -100,7 +112,7 @@ Configure::write(array( 'cache_enable' => false,
 */
 Configure::write('jquery mobile, jquery mobile mvc, jquery mobile php, jquery mobile framework', 'app_keywords'); // meta keywords
 Configure::write('A very lightweight PHP MVC framework utilizing jQuery Mobile', 'app_description'); // meta app description
-Configure::write('http://localhost/mvc/', 'baseurl'); // meta app canonical url
+Configure::write('http://tjm.tenkana.vn', 'baseurl'); // meta app canonical url
             
 /*
 * Authentication setting

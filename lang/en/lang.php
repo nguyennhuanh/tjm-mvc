@@ -4,11 +4,10 @@
 
 	http://www.tenkana.vn/
 	
-	File: bootstrap.php
+	File: Application.php
 	Version: 1.0
 	Description: 
-	    - This file is loaded automatically by the index.php
-		- Use this to set up database details and other stuff
+	    - 
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -21,12 +20,11 @@
 	GNU General Public License for more details.
 
 */
-define('VERSION', '1.0');
-
-define('BASE_DIR', dirname(__FILE__).'/');
-define('LIB_DIR', BASE_DIR.'lib/');
-define('MODEL_DIR', BASE_DIR.'models/');
-define('PAGE_DIR', BASE_DIR.'pages/');
-define('THEME_DIR', BASE_DIR.'themes/');
-define('PLUGIN_DIR', BASE_DIR.'plugin/');
-define('LANG_DIR', BASE_DIR.'lang/');
+global $lang_array;
+$lang_array = array(
+	'LOGIN' => 'Login',
+	'USERNAME' => 'Username',
+	'PASSWORD' => 'Password',
+	'BACK_HOME' => 'Back to home',
+	'WELCOME' => 'Hi ^! Have a nice day!',
+);

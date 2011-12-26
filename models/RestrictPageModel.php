@@ -3,9 +3,9 @@ class RestrictPageModel extends PageModelBase{
     public function pageLoad(){
         $login = BasicAuth::validate();
         if (empty($login) || !isset($login)){
-            header('Location: login');
+            $this->redirect('login');
             return;
         }
-        $this->content['custom_html'] = "<p>Hello, ".$login."!</p>";
+        $this->content['custom_html'] = Lang::get('WELCOME', $login);
     }
 }
