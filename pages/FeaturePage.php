@@ -8,5 +8,6 @@
 		<li>SEO config support
 		<li>Theme-based (allow to override default theme of Jquery mobile)
 		<li>Apache (.htaccess) support
+		<li>Multiple language support
 	</ul>    
 </div>
