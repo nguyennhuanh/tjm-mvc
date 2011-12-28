@@ -116,7 +116,7 @@ Configure::write('http://tjm.tenkana.vn', 'baseurl'); // meta app canonical url
             
 /*
 * Authentication setting
-* Option 1: Set params with your table and field which are used for validating
+* Option 1: Set params with your table and fields which are used for validating
 *     - Example: BasicAuth::setSource('users', 'username', 'password');
 * Option 2: Set params with your fixed account
 *     - Example: BasicAuth::setSource('NO_SQL_AUTH', 'admin', 'admin');

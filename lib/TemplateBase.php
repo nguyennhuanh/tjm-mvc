@@ -134,9 +134,9 @@ class TemplateBase{
     
     public function header($f = null){
         if (isset($f) && !empty($f)){
-            echo '<div id="'.$this->pageId[$f].'Header" data-role="header" data-theme="b"><a href="home" data-iconpos="notext" data-direction="reverse" data-icon="home" title="Home"></a><h1>TJM-MVC Framework</h1></div>';
+            echo '<div id="'.$this->pageId[$f].'Header" data-role="header" data-theme="b"><a href="home" data-iconpos="notext" data-direction="reverse" data-icon="home" title="Home"></a><h1>TJM-MVC PHP</h1></div>';
         } else {
-            echo '<div id="'.$this->pageId.'Header" data-role="header" data-theme="b"><a href="home" data-iconpos="notext" data-direction="reverse" data-icon="home" title="Home"></a><h1>TJM-MVC Framework</h1></div>';
+            echo '<div id="'.$this->pageId.'Header" data-role="header" data-theme="b"><a href="home" data-iconpos="notext" data-direction="reverse" data-icon="home" title="Home"></a><h1>TJM-MVC PHP</h1></div>';
         }
     }
     
