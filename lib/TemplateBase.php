@@ -84,6 +84,22 @@ class TemplateBase{
         }
     }
     
+    public function scripts(){
+		foreach($this->script_src as $key => $val){
+            if (!empty($val)){
+                echo '<script language="javascript" type="text/javascript" src="'.$val.'"></script>';
+            }
+        }
+	}
+	
+	public function styles(){
+		foreach($this->style_src as $key => $val){
+            if (!empty($val)){
+                echo '<link rel="stylesheet" href="'.$val.'" />';
+            }
+        }
+	}
+    
     public function head(){
         echo '<HEAD>';
         $this->title();
@@ -93,17 +109,8 @@ class TemplateBase{
         
         $this->seo();
         
-        foreach($this->script_src as $key => $val){
-            if (!empty($val)){
-                echo '<script language="javascript" type="text/javascript" src="'.$val.'"></script>';
-            }
-        }
-        
-        foreach($this->style_src as $key => $val){
-            if (!empty($val)){
-                echo '<link rel="stylesheet" href="'.$val.'" />';
-            }
-        }
+        $this->scripts();
+        $this->styles();
         
         echo '</HEAD>';
     }

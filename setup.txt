@@ -1,0 +1,23 @@
+1. Edit Routes in bootstrap.php to add the line as below:
+'comment' => array( 'php' => 'pages/CommentPage.php',),
+
+2. Create database and modify database configuration in bootstrap.php
+
+3. Create table using the following SQL:
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT '0',
+  `comment` text COLLATE utf8_unicode_ci,
+  `parent_id` bigint(20) DEFAULT '0',
+  `full_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT '0',
+  `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `flags` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+4. Copy files to the right places:
+CommentPage.php --> pages/
+CommentPageModel.php --> models/
+
+5. And GO!!!
